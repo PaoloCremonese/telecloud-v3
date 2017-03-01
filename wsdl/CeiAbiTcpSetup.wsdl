@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tnsSU="http://www.example.org/CeiAbiTcpSetup/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="CeiAbiTcpSetup" targetNamespace="http://www.example.org/CeiAbiTcpSetup/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/CeiAbiTcpSetup/">
+      <xsd:element name="InserimentoCA">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="sNome" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+
+          	<xsd:element name="sIpAddr" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+          	<xsd:element name="sIpPort" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+          	<xsd:element name="iLogicAddr" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+
+          	<xsd:element name="iType" type="tnsSU:eTipoCA" maxOccurs="1" minOccurs="1"></xsd:element>
+          	<xsd:element name="iTrace" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
+          	<xsd:element name="iTipoCRC" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
+          	<xsd:element name="iLivelloProtezione" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
+          	<xsd:element name="sMasterKey" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="InserimentoCAResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="sName" type="xsd:string" maxOccurs="1" minOccurs="1"/>
+          	<xsd:element name="iIndex" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    
+    
+    
+      <xsd:simpleType name="eTipoCA">
+      	<xsd:restriction base="xsd:string">
+      		<xsd:enumeration value="argo"></xsd:enumeration>
+      		<xsd:enumeration value="pegaso"></xsd:enumeration>
+      		<xsd:enumeration value="riscB"></xsd:enumeration>
+      		<xsd:enumeration value="tp8"></xsd:enumeration>
+      		<xsd:enumeration value="am6000"></xsd:enumeration>
+      		<xsd:enumeration value="eolo"></xsd:enumeration>
+      		<xsd:enumeration value="pulsar"></xsd:enumeration>
+      		<xsd:enumeration value="am6016"></xsd:enumeration>
+      		<xsd:enumeration value="steeleye"></xsd:enumeration>
+      	</xsd:restriction>
+      </xsd:simpleType>
+      <xsd:element name="CancellazioneCA">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="sName" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CancellazioneCAResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ModificaCA">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="sNome" type="xsd:string"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="sNewName" type="xsd:string"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="sIpAddr" type="xsd:string"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="sIpPort" type="xsd:string"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="iLogicAddr" type="xsd:int"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="iType" type="tnsSU:eTipoCA"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="iTrace" type="xsd:int"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="iTipoCRC" type="xsd:int"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="iLivelloProtezione" type="xsd:int"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="sMasterKey" type="xsd:string"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="iCadenzaID" type="xsd:int"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="iCadenzaScambioChiavi"
+      				type="xsd:int" maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="iEsclusione" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ModificaCAResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="szName" type="xsd:string"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="nIndex" type="xsd:int"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="nTCPstatus" type="xsd:int"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="szIpAddr" type="xsd:string"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="szIpPort" type="xsd:string"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="nLogicAddr" type="xsd:int"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="nType" type="xsd:int" maxOccurs="1"
+      				minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="nTrace" type="xsd:int"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="nTipoCRC" type="xsd:int"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="nLivelloProtezione" type="xsd:int"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="szMasterKey" type="xsd:string"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="nCadenzaID" type="xsd:int"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="nCadenzaScambioChiavi"
+      				type="xsd:int" maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="bEsclusione" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+      			<xsd:element name="sVersione" type="xsd:string"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ComandoCA">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="sNome" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+      			<xsd:element name="nComando" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+      			<xsd:element name="nElemento" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+      			<xsd:element name="nFunzioneTlc" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ComandoCAResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ListaCAAttive">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="in" type="xsd:string"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ListaCAAttiveResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="listaCA" type="tnsSU:listaCAType" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    
+      <xsd:complexType name="listaCAType">
+      	<xsd:sequence>
+      		<xsd:element name="nIndice" type="xsd:int"></xsd:element>
+      		<xsd:element name="sName" type="xsd:string"></xsd:element>
+      		<xsd:element name="sIp" type="xsd:string"></xsd:element>
+      		<xsd:element name="nLogicAddr" type="xsd:int"></xsd:element>
+      		<xsd:element name="sStatus" type="xsd:string"></xsd:element>
+      	</xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="GenericOperation">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="iID" type="xsd:int" maxOccurs="1"
+      				minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="sName" type="xsd:string"
+      				maxOccurs="1" minOccurs="1">
+      			</xsd:element>
+      			<xsd:element name="sCmd" type="xsd:string"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="iCmd" type="xsd:int" maxOccurs="1"
+      				minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="sCmd2" type="xsd:string"
+      				maxOccurs="1" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="iCmd2" type="xsd:int" maxOccurs="1"
+      				minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="svPar" type="xsd:string"
+      				maxOccurs="unbounded" minOccurs="0">
+      			</xsd:element>
+      			<xsd:element name="siPar" type="xsd:string" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="GenericOperationResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="iID" type="xsd:int" maxOccurs="1" minOccurs="1"></xsd:element>
+      			<xsd:element name="sName" type="xsd:string" maxOccurs="1" minOccurs="1"></xsd:element>
+      			<xsd:element name="sCmd" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+      			<xsd:element name="iCmd" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
+      			<xsd:element name="sCmd2" type="xsd:string" maxOccurs="1" minOccurs="0"></xsd:element>
+      			<xsd:element name="iCmd2" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
+      			<xsd:element name="svPar" type="xsd:string" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      			<xsd:element name="ivPar" type="xsd:int" maxOccurs="unbounded" minOccurs="0"></xsd:element>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="InserimentoCARequest">
+    <wsdl:part element="tnsSU:InserimentoCA" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="InserimentoCAResponse">
+    <wsdl:part element="tnsSU:InserimentoCAResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="CancellazioneCARequest">
+  	<wsdl:part name="parameters" element="tnsSU:CancellazioneCA"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CancellazioneCAResponse">
+  	<wsdl:part name="parameters" element="tnsSU:CancellazioneCAResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ModificaCARequest">
+  	<wsdl:part name="parameters" element="tnsSU:ModificaCA"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ModificaCAResponse">
+  	<wsdl:part name="parameters" element="tnsSU:ModificaCAResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComandoCARequest">
+  	<wsdl:part name="parameters" element="tnsSU:ComandoCA"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ComandoCAResponse">
+  	<wsdl:part name="parameters" element="tnsSU:ComandoCAResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ListaCAAttiveRequest">
+  	<wsdl:part name="parameters" element="tnsSU:ListaCAAttive"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ListaCAAttiveResponse">
+  	<wsdl:part name="parameters" element="tnsSU:ListaCAAttiveResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GenericOperationRequest">
+  	<wsdl:part name="parameters" element="tnsSU:GenericOperation"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GenericOperationResponse">
+  	<wsdl:part name="parameters" element="tnsSU:GenericOperationResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CeiAbiTcpSetup">
+    <wsdl:operation name="InserimentoCA">
+      <wsdl:input message="tnsSU:InserimentoCARequest"/>
+      <wsdl:output message="tnsSU:InserimentoCAResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="CancellazioneCA">
+    	<wsdl:input message="tnsSU:CancellazioneCARequest"></wsdl:input>
+    	<wsdl:output message="tnsSU:CancellazioneCAResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ModificaCA">
+    	<wsdl:input message="tnsSU:ModificaCARequest"></wsdl:input>
+    	<wsdl:output message="tnsSU:ModificaCAResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ComandoCA">
+    	<wsdl:input message="tnsSU:ComandoCARequest"></wsdl:input>
+    	<wsdl:output message="tnsSU:ComandoCAResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ListaCAAttive">
+    	<wsdl:input message="tnsSU:ListaCAAttiveRequest"></wsdl:input>
+    	<wsdl:output message="tnsSU:ListaCAAttiveResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenericOperation">
+    	<wsdl:input message="tnsSU:GenericOperationRequest"></wsdl:input>
+    	<wsdl:output message="tnsSU:GenericOperationResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CeiAbiTcpSetupSOAP" type="tnsSU:CeiAbiTcpSetup">
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="InserimentoCA">
+  		<soap:operation
+  			soapAction="http://www.example.org/CeiAbiTcpSetup/InserimentoCA" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="CancellazioneCA">
+  		<soap:operation
+  			soapAction="http://www.example.org/CeiAbiTcpSetup/CancellazioneCA" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="ModificaCA">
+  		<soap:operation
+  			soapAction="http://www.example.org/CeiAbiTcpSetup/ModificaCA" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="ComandoCA">
+  		<soap:operation
+  			soapAction="http://www.example.org/CeiAbiTcpSetup/ComandoCA" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="ListaCAAttive">
+  		<soap:operation
+  			soapAction="http://www.example.org/CeiAbiTcpSetup/ListaCAAttive" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  	<wsdl:operation name="GenericOperation">
+  		<soap:operation
+  			soapAction="http://www.example.org/CeiAbiTcpSetup/GenericOperation" />
+  		<wsdl:input>
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
+  </wsdl:binding>
+  
+  <wsdl:service name="CeiAbiTcpSetup">
+    <wsdl:port binding="tnsSU:CeiAbiTcpSetupSOAP" name="CeiAbiTcpSetupSOAP">
+      <soap:address location="http://www.example.org/CeiAbiTcpSetupWS"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
