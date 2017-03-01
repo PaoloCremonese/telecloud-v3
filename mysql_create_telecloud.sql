@@ -18,8 +18,8 @@ CREATE TABLE account (
 	lastname VARCHAR(255) NOT NULL,
 	lastlogin TIMESTAMP NOT NULL,
 	logincount INTEGER NOT NULL,
-	password VARCHAR(45) NOT NULL,
-	status INTEGER NOT NULL,
+	password VARCHAR(256) NOT NULL,
+	status BIGINT NOT NULL,
 	CONSTRAINT account_pk PRIMARY KEY ( id )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -40,10 +40,57 @@ CREATE TABLE device (
 	creationdate TIMESTAMP NOT NULL,
 	modificationdate TIMESTAMP NULL,
 	name VARCHAR(255) NOT NULL,
+	url VARCHAR(256) NOT NULL,
 	programmazione MEDIUMTEXT NOT NULL,
+	status MEDIUMTEXT NOT NULL,
+	version VARCHAR(45) NULL,
 	site_id BIGINT NOT NULL,
 	CONSTRAINT device_pk PRIMARY KEY ( id )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE pgmissues (
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	programmazione MEDIUMTEXT NOT NULL,
+	nomeutente VARCHAR(255) NOT NULL,
+	nomesito VARCHAR(255) NULL,
+	nomedevice VARCHAR(255) NOT NULL,
+	idutente BIGINT NOT NULL,
+	idsito BIGINT NOT NULL,
+	iddevice BIGINT NOT NULL,
+	issuetime TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	errore INTEGER NOT NULL,
+	commento VARCHAR(255) NOT NULL,
+	CONSTRAINT pgmissues_pk PRIMARY KEY ( id )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE eventistr (
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	gdoevento TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	tipotlc VARCHAR(50) NOT NULL,
+	datotlc INTEGER NULL,
+	addrperif INTEGER NULL,
+	versione INTEGER NOT NULL,
+	formato INTEGER NOT NULL,
+	processo VARCHAR(50) NOT NULL,
+	tipoprocesso VARCHAR(50) NOT NULL,
+	tipoinfo VARCHAR(50) NOT NULL,
+	numeromsgappl INTEGER NOT NULL,
+	tipoevento VARCHAR(50) NOT NULL,
+	transazione VARCHAR(50) NULL,
+	tiporivelatore VARCHAR(50) NULL,
+	areaapplicativa VARCHAR(50) NULL,
+	provenienza VARCHAR(50) NULL,
+	categoria VARCHAR(50) NULL,
+	classeelemento VARCHAR(50) NULL,
+	numeroelemento INTEGER NULL,
+	idcommento INTEGER NULL,
+	commento VARCHAR(250) NULL,
+	idimpianto INTEGER NULL,
+	nomeimpianto VARCHAR(50) NULL,
+	ipaddr VARCHAR(50) NULL,
+	CONSTRAINT eventistr_pk PRIMARY KEY ( id )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 ALTER TABLE site ADD CONSTRAINT site_fk_account FOREIGN KEY ( account_id ) REFERENCES account ( id );
 ALTER TABLE device ADD CONSTRAINT device_fk_site FOREIGN KEY ( site_id ) REFERENCES site ( id );
