@@ -91,9 +91,18 @@ CREATE TABLE eventistr (
 	CONSTRAINT eventistr_pk PRIMARY KEY ( id )
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE energy (
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	device_id BIGINT NOT NULL,
+	gdo DATE NOT NULL,
+	energydata VARCHAR(2048) NOT NULL,
+	CONSTRAINT energy_pk PRIMARY KEY ( id )
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 ALTER TABLE site ADD CONSTRAINT site_fk_account FOREIGN KEY ( account_id ) REFERENCES account ( id );
 ALTER TABLE device ADD CONSTRAINT device_fk_site FOREIGN KEY ( site_id ) REFERENCES site ( id );
+ALTER TABLE energy ADD CONSTRAINT energy_fk_device FOREIGN KEY ( device_id ) REFERENCES device ( id );
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
