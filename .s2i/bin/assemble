@@ -10,15 +10,6 @@ else
     echo "After failed assembling"
 fi
 
-export OPENSHIFT_MYSQL_DATASOURCE=telecloudDatasource
-export OPENSHIFT_MYSQL_DB_HOST=172.30.194.52
-export OPENSHIFT_MYSQL_DB_PORT=3306
-export OPENSHIFT_MYSQL_DB_NAME=telecloud
-export OPENSHIFT_MYSQL_DB_USERNAME=adminyBT1zVW
-export OPENSHIFT_MYSQL_DB_PASSWORD=KYHAs-qLYxyQ
-
-echo "OPENSHIFT_MYSQL_DB_... Env Vars created."
-
 modules_dir=/wildfly/modules/org/eclipse/persistence/main
 mkdir -p $modules_dir
 cp -ad /opt/app-root/src/WF-config/modules/org/eclipse/persistence/main/* $modules_dir
@@ -26,7 +17,7 @@ cp -ad /opt/app-root/src/WF-config/modules/org/eclipse/persistence/main/* $modul
 echo "Eclipse Persistency modules copyied."
 
 config_dir=/wildfly/standalone/configuration
-##cp /opt/app-root/src/WF-config/standalone.xml $config_dir
+cp /opt/app-root/src/WF-config/standalone.xml $config_dir
 cp /opt/app-root/src/WF-config/telecloudRealm.properties $config_dir
 
 echo "Wildfly standalone.xml copyied."
