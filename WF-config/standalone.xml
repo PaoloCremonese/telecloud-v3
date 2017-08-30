@@ -153,7 +153,7 @@
                         <password>sa</password>
                     </security>
                 </datasource>
-                <datasource jndi-name="java:/jdbc/${env.OPENSHIFT_MYSQL_DATASOURCE}" enabled="${mysql.enabled}" use-java-context="true" pool-name="${env.OPENSHIFT_MYSQL_DATASOURCE}" use-ccm="true">
+                <datasource jndi-name="java:/jdbc/${env.OPENSHIFT_MYSQL_DATASOURCE}" enabled="true" use-java-context="true" pool-name="${env.OPENSHIFT_MYSQL_DATASOURCE}" use-ccm="true">
                     <connection-url>jdbc:mysql://${env.MYSQL_PORT_3306_TCP_ADDR}:${env.MYSQL_PORT_3306_TCP_PORT}/${env.OPENSHIFT_MYSQL_DB_NAME}?zeroDateTimeBehavior=convertToNull</connection-url>
                     <driver-class>com.mysql.jdbc.Driver</driver-class>
                     <driver>mysql</driver>
@@ -165,13 +165,11 @@
                         <check-valid-connection-sql>SELECT 1</check-valid-connection-sql>
                         <background-validation>true</background-validation>
                         <background-validation-millis>60000</background-validation-millis>
-                        <!--<validate-on-match>true</validate-on-match>-->
                     </validation>
                     <pool>
                         <flush-strategy>IdleConnections</flush-strategy>
                     </pool>
                 </datasource>
-
                 <datasource jndi-name="java:jboss/datasources/${env.OPENSHIFT_POSTGRESQL_DATASOURCE}" pool-name="${env.OPENSHIFT_POSTGRESQL_DATASOURCE}" enabled="false" use-java-context="true" use-ccm="true">
                     <connection-url>jdbc:postgresql://${env.OPENSHIFT_POSTGRESQL_DB_HOST}:${env.OPENSHIFT_POSTGRESQL_DB_PORT}/${env.OPENSHIFT_POSTGRESQL_DB_NAME}</connection-url>
                     <driver>postgresql</driver>
